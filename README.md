@@ -1,10 +1,11 @@
 # ii
 
-I really don't know how to put this up... but ~sometimes~ **EVERY SINGLE TIME**, i found myself out of sync in terms of dependencies installed locally from the main/master branch.
-On a team project, i always need to check after a pull/checkout, a **xxx install** to be sure am sync with the main branch, because, deps are added/upgraded overtime...
+I really don't know how to put this up... let's break that with some use cases :
+
+- You are working on branch x, that is linked to env_x with dependency x, you switch to another branch, x is still in your environment but not in lock/config file, you're out of sync.
+- ~Sometimes~ (**EVERY SINGLE TIME**), you're working on a team project, you often find yourself always checking after a pull/checkout, if **xxx install** was run to be sync with the main(remote) branch, because, deps are added/upgraded overtime...
 
 I think i should be aware if i really need to run that install command or not.
-
 So i made `_ii_`(Install It), it's a small **git/hooks** that will notify if you need to run an install command to be sync with the main/master version of the codebase in terms of dependencies.
 
 ## REQUIREMENTS
