@@ -8,6 +8,10 @@ I really don't know how to put this up... let's break that with some use cases :
 I think i should be aware if i really need to run that install command or not.
 So i made `_ii_`(Install It), it's a small **git/hooks** that will notify if you need to run an install command to be sync with the main/master version of the codebase in terms of dependencies.
 
+
+https://github.com/user-attachments/assets/6fef9d11-1923-4034-9df7-b3f3af32d862
+
+
 ## REQUIREMENTS
 
 - git
