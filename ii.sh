@@ -8,40 +8,40 @@ RED='\033[0;31m'
 MAGENTA='\033[0;35m'
 
 # files path and defined actions
-target_action = {
-    "requirements.txt": "pip install -r requirements.txt",
-    "poetry.lock": "poetry install",
-    "composer.lock": "composer install",
-    "package-lock.json": "npm install",
-    "yarn.lock": "yarn install",
-    "pnpm-lock.yaml": "pnpm install",
-    "pnpm-lock.yml": "pnpm install",
-    "Gemfile.lock": "bundle install",
-    "Pipfile.lock": "pipenv install",
-    "Cargo.lock": "cargo build",
-    "go.mod": "go mod tidy",
-    "Gopkg.lock": "dep ensure",
-    "build.gradle": "gradle build",
-    "pom.xml": "mvn install",
-    "Makefile": "make",
-    "environment.yml": "conda env create -f environment.yml",
-    "environment.yaml": "conda env create -f environment.yaml",
-    "mix.lock": "mix deps.get",
-    "rebar.lock": "rebar3 get-deps",
-    "Cartfile.resolved": "carthage bootstrap",
-    "Podfile.lock": "pod install",
-    "project.clj": "lein deps",
-    "clj-deps.edn": "clojure -A:deps",
-    "CMakeLists.txt": "cmake .",
-    "shard.lock": "shards install",
-    "build.sbt": "sbt update",
-    "deps.edn": "clojure -A:deps",
-    "spago.dhall": "spago install",
-    "default.nix": "nix-shell",
-    "flake.nix": "nix develop",
-    "dub.json": "dub upgrade",
-    "dub.selections.json": "dub upgrade"
-}
+declare -A target_action=(
+    ["requirements.txt"]="pip install -r requirements.txt"
+    ["poetry.lock"]="poetry install"
+    ["composer.lock"]="composer install"
+    ["package-lock.json"]="npm install"
+    ["yarn.lock"]="yarn install"
+    ["pnpm-lock.yaml"]="pnpm install"
+    ["pnpm-lock.yml"]="pnpm install"
+    ["Gemfile.lock"]="bundle install"
+    ["Pipfile.lock"]="pipenv install"
+    ["Cargo.lock"]="cargo build"
+    ["go.mod"]="go mod tidy"
+    ["Gopkg.lock"]="dep ensure"
+    ["build.gradle"]="gradle build"
+    ["pom.xml"]="mvn install"
+    ["Makefile"]="make"
+    ["environment.yml"]="conda env create -f environment.yml"
+    ["environment.yaml"]="conda env create -f environment.yaml"
+    ["mix.lock"]="mix deps.get"
+    ["rebar.lock"]="rebar3 get-deps"
+    ["Cartfile.resolved"]="carthage bootstrap"
+    ["Podfile.lock"]="pod install"
+    ["project.clj"]="lein deps"
+    ["clj-deps.edn"]="clojure -A:deps"
+    ["CMakeLists.txt"]="cmake ."
+    ["shard.lock"]="shards install"
+    ["build.sbt"]="sbt update"
+    ["deps.edn"]="clojure -A:deps"
+    ["spago.dhall"]="spago install"
+    ["default.nix"]="nix-shell"
+    ["flake.nix"]="nix develop"
+    ["dub.json"]="dub upgrade"
+    ["dub.selections.json"]="dub upgrade"
+)
 
 alert() {
     filename="$1"
@@ -62,7 +62,8 @@ alert_on_changed(){
 
 trigger_on_action() {
     for filename in "${!target_action[@]}"; do
-        alert_on_changed $filename "${target_action[$filename]}" $1 $2
+        local command="${target_action[$filename]}"
+        alert_on_changed $filename "$command" $1 $2
     done
 
     # TODO: Specific actions on special changes for specific files/directories... inside .precommit.yml

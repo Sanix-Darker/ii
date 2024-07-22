@@ -1,13 +1,19 @@
 # ii
 
-I really don't know how to put this, but ~sometimes~, i found myself out of sync with dependencies from the main/master branch
-on a project am working with team members, and i need times to times, after a `checkout -b` or `branch` creation, to try reinstalling that, sometimes deps were added/removed or just never touched... i think i should be aware on if i really need to run that or not.
+I really don't know how to put this up... but ~sometimes~ **EVERY SINGLE TIME**, i found myself out of sync in terms of dependencies installed locally from the main/master branch.
+On a team project, i always need to check after a pull/checkout, a **xxx install** to be sure am sync with the main branch, because, deps are added/upgraded overtime...
 
-So i made `ii`(Install It), it's basically a **git/hooks** that will notify if you need to run a command to be sync with the main/master version of the codebase in terms of dependencies.
+I think i should be aware if i really need to run that install command or not.
+
+So i made `_ii_`(Install It), it's a small **git/hooks** that will notify if you need to run an install command to be sync with the main/master version of the codebase in terms of dependencies.
+
+## REQUIREMENTS
+
+- git
 
 ## FEATURES
 
-Here's a list of the languages/stacks and their associated package management tools supported:
+Here's a list of the languages/stacks and their associated package management tools supported by ii:
 
 | Language/Stack       | Package Manager           | Lock/Config File         | Install Command                |
 |----------------------|---------------------------|--------------------------|--------------------------------|
@@ -47,4 +53,3 @@ Here's a list of the languages/stacks and their associated package management to
 
 Place all 3 files(post-merge, post-checkout, ii.sh) inside the `.git/hooks` of your project.
 That's it.
-
