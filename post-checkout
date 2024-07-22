@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+source "$(dirname $0)/ii.sh"
+trigger_on_action $1 $2
+
+exit 0

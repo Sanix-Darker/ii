@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+source "$(dirname $0)/ii.sh"
+trigger_on_action HEAD@{1} HEAD@{0}
+
+exit 0
