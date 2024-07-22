@@ -52,7 +52,7 @@ alert() {
 
 is_changed() {
     # get list of files changed from git and grep
-    changed_files="$(git diff-tree -r --name-status --no-commit-id $3 $4)"
+    changed_files="$(git diff-tree -r --name-status --no-commit-id $2 $3)"
     echo "$changed_files" | grep -Eq "$1"
 }
 
